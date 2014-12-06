@@ -35,8 +35,8 @@ public class FloatStringBimap {
 	public ArrayList<String> put(Float val, String val2) {
 		// TODO: check for string equals float.tostring
 		ArrayList<String> previous = new ArrayList<String>();
-		if (bimap.containsKey(val))
-			previous.add(bimap.get(val));
+		if (bimap.containsKey(val.toString()))
+			previous.add(bimap.get(val.toString()));
 		if (bimap.containsKey(val2))
 			previous.add(bimap.get(val2));
 		bimap.put(val.toString(), val2);
@@ -48,8 +48,8 @@ public class FloatStringBimap {
 		ArrayList<String> previous = new ArrayList<String>();
 		if (bimap.containsKey(val))
 			previous.add(bimap.get(val));
-		if (bimap.containsKey(val2))
-			previous.add(bimap.get(val2));
+		if (bimap.containsKey(val2.toString()))
+			previous.add(bimap.get(val2.toString()));
 		bimap.put(val, val2.toString());
 		bimap.put(val2.toString(), val);
 		return previous;

@@ -1,9 +1,8 @@
-package harlequinmettle.android.tools.androidsupportlibrary;
+package harlequinmettle.android.tools.androidsupportlibrary.overridecustomization;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.util.Log;
 import android.widget.TextView;
 
 public class CustomTextView extends TextView {
@@ -14,7 +13,6 @@ public class CustomTextView extends TextView {
 
 	@Override
 	public void draw(Canvas canvas) {
-		Log.v("DRAW", "DRAW OVERRIDE");
 		Paint strokePaint = new Paint();
 		strokePaint.setARGB(255, 255, 255, 255);
 		// strokePaint.setStrokeWidth(2);
