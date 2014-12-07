@@ -18,8 +18,8 @@ public class CustomScrollView extends ScrollView {
 	}
 
 	private boolean scrollingDown = false;
-	private boolean isVisible = true;
-	private View visibleView;
+	private boolean isLabelVisible = true;
+	private View visibleViewLabel;
 	private ScrollObjectOutOfViewCallBack scrollOutOfViewActionable;
 	private Rect scrollBounds = new Rect();
 
@@ -27,16 +27,18 @@ public class CustomScrollView extends ScrollView {
 		this.scrollOutOfViewActionable = scrolloutofviewaction;
 	}
 
-	public void setVisibleView(View view) {
-		this.visibleView = view;
-		isVisible = isViewVisible(view);
+	public void setVisibleViewLabel(View view) {
+		this.visibleViewLabel = view;
+		isLabelVisible = isViewVisible(view);
+
 	}
 
 	public boolean isViewVisible(View view) {
-
+		if (view == null)
+			return false;
 		// Any portion visible
 		getHitRect(scrollBounds);
-		return visibleView.getLocalVisibleRect(scrollBounds);
+		return visibleViewLabel.getLocalVisibleRect(scrollBounds);
 	}
 
 	@Override
@@ -46,17 +48,18 @@ public class CustomScrollView extends ScrollView {
 		else
 			scrollingDown = false;
 
-		if (isViewVisible(visibleView)) {
-			// if (!isVisible)
+		if (isViewVisible(visibleViewLabel)) {
+			// if (!isLabelVisible)
 			// if (scrollingDown)
 			// scrollOutOfViewActionable.doWhenViewScollsIntoView();
-			isVisible = true;
+			isLabelVisible = true;
 		} else {
-			if (isVisible)
+			if (isLabelVisible)
 				if (!scrollingDown)
 					scrollOutOfViewActionable.doWhenViewScollsOutOfView();
-			isVisible = false;
+			isLabelVisible = false;
 		}
+
 		super.onScrollChanged(left, top, oldLeft, oldTop);
 	}
 }
