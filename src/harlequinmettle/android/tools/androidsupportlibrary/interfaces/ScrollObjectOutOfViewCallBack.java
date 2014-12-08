@@ -1,7 +1,6 @@
 package harlequinmettle.android.tools.androidsupportlibrary.interfaces;
 
 public interface ScrollObjectOutOfViewCallBack {
-	public void doWhenViewScollsOutOfView();
+	public void notifyTopAfterScrollEvent(int scrolltop);
 
-	public void doWhenViewScollsIntoView();
 }
